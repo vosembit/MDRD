@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Map</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+<center>
+    <h3>Madrid femap</h3>
+    <div id="map"></div><br>
+
+        <button id="myButton" onclick="addMarker()">Yes, I Am.</button>
+    </center>
+    <script>
+        function initMap() {
+
+            var element = document.getElementById('map');
+            var options = {
+                zoom: 12,
+                center: {
+                    lat: 40.421395944168545,
+                    lng: -3.7039387407988325
+                }
+            };
+
+            var myMap = new google.maps.Map(element, options);
+
+            function randomFloat(min, max) {
+                return min + (max - min) * Math.random();
+            }
+
+            function addMarker() {
+                var lt = randomFloat(40.42, 40.43);
+                var ln = randomFloat(-3.7, -3.8);
+
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: lt,
+                        lng: ln
+                    },
+                    map: myMap
+                });
+            }
+            var p = document.getElementById("myButton"); // Find the paragraph element in the page
+            p.onclick = addMarker; // Add onclick function to element
+
+        }
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DNCG5Lbqj9QYEd-83sHof7vtxBETqE8&callback=initMap"> </script>
+
+</body>
+
+</html>
+
+
+
+
+<!--
+            //            var InfoWindow = new google.maps.InfoWindow({
+            //                content: '<h1>Yes, I Am</h1>'
+            //            });
+            //
+            //            marker.addListener('click', function(){
+            //            InfoWindow.open(myMap, marker);
+            //
+            //            })-->
