@@ -1,31 +1,45 @@
-/* Set the size of the div element that contains the map */
+.demo-layout-transparent {
+/*    background: url('1.png') center / cover;*/
+        background-color: grey;
+}
+
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+    color: white;
+}
+
+#coun {
+    margin-top: 5%;
+    color: white;
+    text-align: center;
+}
+
+#btn {
+    background-color: rgba(32, 35, 45, 0.2);
+    text-align: center;
+    height: 100px;
+}
+
+
+
 #map {
-  height: 900px;
-  /* The height is 400 pixels */
+position: absolute;
+  height: 99%;
   width: 100%;
   /* The width is the width of the web page */
 }
 
-
-#myButton {
-
-    box-shadow:inset 0px 39px 0px -24px #e67a73;
-    background-color:#e4685d;
-    border-radius:4px;
-    border:1px solid #ffffff;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:15px;
-    padding:6px 15px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #b23e35;
+#counter {
+    position: absolute;
+    z-index: 999;
 }
-#myButton:hover {
-    background-color:#eb675e;
+
+#add{
+/*    position: absolute;*/
+    text-align: center;
+/*    margin-top: 25%;*/
 }
-#myButton:active {
-    position:relative;
-    top:1px;
+
+#cen {
+    text-align: center;
 }
