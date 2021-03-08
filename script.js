@@ -289,7 +289,7 @@ $('#send-dialog').click(function () {
     validate();
     if (ap) {
         addMarker2();
-        $.get("https://api.thingspeak.com/update.json?api_key=JDJCGRJD46GEN020&field1=125", function (data, status) {});
+        $.get("https://api.thingspeak.com/update.json?api_key=JDJCGRJD46GEN020&field1=1", function (data, status) {});
         GetData();
         document.querySelector('dialog').close();
     }
