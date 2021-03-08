@@ -1,6 +1,6 @@
 .demo-layout-transparent {
-/*    background: url('1.png') center / cover;*/
-        background-color: grey;
+    /*    background: url('1.png') center / cover;*/
+    background-color: grey;
 }
 
 .demo-layout-transparent .mdl-layout__header,
@@ -8,38 +8,95 @@
     color: white;
 }
 
-#coun {
-    margin-top: 5%;
-    color: white;
+
+
+
+#head {
+
     text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-#btn {
-    background-color: rgba(32, 35, 45, 0.2);
-    text-align: center;
-    height: 100px;
+#cbox {
+/*    width: 100%;*/
+    margin: auto;
+    background-color: rgba(206, 151, 244, 0.3);
+    border: 5px solid #fff;
+    font-family: 'Roboto Condensed', sans-serif;
 }
-
 
 
 #map {
-position: absolute;
-  height: 99%;
-  width: 100%;
-  /* The width is the width of the web page */
-}
-
-#counter {
     position: absolute;
-    z-index: 999;
+    height: 100%;
+    width: 100%;
 }
 
-#add{
-/*    position: absolute;*/
+
+#foot {
+        font-family: 'Roboto Condensed', sans-serif;
+
+    background-color: rgba(32, 35, 45, 0.3 );
+    color: #fff;
     text-align: center;
-/*    margin-top: 25%;*/
+    height: 128px;
 }
 
-#cen {
-    text-align: center;
+.stat {
+    color: #cd96f4;
 }
+
+#show-action {
+    width: 300px;
+}
+
+input[type="email"] {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #03A9F4 4%);
+  background-position: -400px 0;
+  background-repeat: no-repeat;
+  transition: border-bottom 0.3s ease, background 0.3s ease;
+}
+input[type="email"] ~ span.validation-text {
+  position: absolute;
+  visibility: hidden;
+  font-family: 'roboto', sans-serif;
+  font-size: 0.6em;
+  width: 200px;
+  margin-left: 25px;
+  margin-top: -5px;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+input[type="email"]:not([value=""])::-webkit-input-placeholder {
+  font-size: 0.8em;
+  transform: translateY(-20px);
+  visibility: visible !important;
+  opacity: 1;
+}
+input[type="email"]:not([value=""]):focus::-webkit-input-placeholder {
+  color: #03A9F4;
+}
+input[type="email"]:not([value=""]):focus:not(:valid)::-webkit-input-placeholder {
+  color: #E91E63;
+}
+input[type="email"]:focus {
+  background-position: 0 0;
+}
+input[type="email"]:focus:not(:valid):not([value=""]) {
+  border-bottom: solid 1px #E91E63;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #E91E63 4%);
+}
+input[type="email"]:not(:focus):not(:valid):not([value=""]) {
+  border-bottom: solid 1px #E91E63;
+  background-position: 0 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #E91E63 4%);
+}
+input[type="email"]:not(:focus):not(:valid):not([value=""])::-webkit-input-placeholder {
+  color: #E91E63;
+}
+input[type="email"]:not(:focus):not(:valid):not([value=""]) ~ span.validation-text {
+  visibility: visible;
+  color: #E91E63;
+}
+
+

@@ -5,79 +5,105 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Digital Light Control UI. model: ESPX ">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <title id="title"></title>
+    <title id="title">8M</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+
+
     <link rel="stylesheet" href="mdl-jquery-modal-dialog.css">
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-
-    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-
-
-
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--transparent">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <span class="mdl-layout-title" id="counter">Title</span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation -->
-                <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                </nav>
+            <div class="mdl-grid" id="head">
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
+                    <div id="cbox">
+                        <h3>YA SOMTOS <span id="counter" class="stat">0</span></h3>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone">
+                    <p>ESTE AÑO TAMBIÉN VAMOS A TOMAR LAS CALLES</p>
+                </div>
             </div>
         </header>
 
 
-
-        <main class="mdl-layout__content" style="z-index: -1">
-
-
-
-            <div class="mdl-grid">
-
-                <div id="coun" class="mdl-cell mdl-cell--12-col">
-                    <!--                        <p>Всего пользователей:</p>-->
-                    <!--                    <h1><span id="counter"></span></h1>-->
-                </div>
-                <br>
-
-
-            </div>
+        <main class="mdl-layout__content" style="z-index:-10">
         </main>
-        <div id="map"></div>
-        <footer class="mdl-mega-footer" id="btn">
-            <div class="mdl-mega-footer__middle-section">
-<!--
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="add">
-                    Yes, I Am
-                </button>
--->
-                <button id="show-action" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                    Yes, I Am
-                </button>
 
+        <div id="map"></div>
+        <dialog class="mdl-dialog">
+            <!--            <h4 class="mdl-dialog__title">Delete this</h4>-->
+            <div class="mdl-dialog__content ff">
+                <form>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" placeholder="Email address" type="email" id='email' onblur="this.setAttribute('value', this.value);" value="" required>
+                        <label class="mdl-textfield__label" for="email">email...</label>
+
+                        <!--                        <input placeholder="Email address" type="email" id='email' onblur="this.setAttribute('value', this.value);" value="" required>-->
+                        <span class="validation-text">Please enter a valid email address.</span>
+
+
+                    </div>
+                    <div class="mdl-dialog__actions">
+                        <button type="button" class="mdl-button close" id="send-dialog">GO</button>
+                    </div>
+                </form>
+            </div>
+
+        </dialog>
+
+        <footer class="mdl-mega-footer" id="foot" style="z-index: 9999">
+            <div class="mdl-mega-footer__middle-section">
+                <p>¡NO NOS MIRES!</p>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="show-dialog">ÚNETE</button>
             </div>
         </footer>
-
-
     </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script src="mdl-jquery-modal-dialog.js"></script>
-    <!--        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DNCG5Lbqj9QYEd-83sHof7vtxBETqE8&callback=initMap"> </script>-->
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DNCG5Lbqj9QYEd-83sHof7vtxBETqE8"> </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DNCG5Lbqj9QYEd-83sHof7vtxBETqE8&callback=initMap"> </script>
+
+    <script>
+        var dialog = document.querySelector('dialog');
+        var showDialogButton = document.querySelector('#show-dialog');
+        if (!dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+        }
+        showDialogButton.addEventListener('click', function() {
+            dialog.showModal();
+            var bb = document.getElementById('show-dialog');
+            bb.setAttribute("disabled", "");
+
+        });
+        dialog.querySelector('.close').addEventListener('click', function() {
+            //            dialog.close();
+        });
+
+    </script>
 
 </body>
-
-</html>

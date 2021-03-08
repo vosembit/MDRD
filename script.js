@@ -2,152 +2,212 @@ var myMap;
 var users;
 
 var once = Boolean(true);
+var ap = Boolean(true);
 var dn = 1;
 
 
 $(document).ready(function () {
     GetData();
-    //            initMap();
-
-    var element = document.getElementById('map');
-    var options = {
-        zoom: 16,
-        center: {
-            lat: 40.41463478749649,
-            lng: -3.681933611494517
-        },
-        styles: [
-            {
-                elementType: "geometry",
-                stylers: [{
-                    color: "#242f3e"
-                }]
-            },
-            {
-                elementType: "labels.text.stroke",
-                stylers: [{
-                    color: "#242f3e"
-                }]
-            },
-            {
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#746855"
-                }]
-            },
-            {
-                featureType: "administrative.locality",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#d59563"
-                }],
-      },
-            {
-                featureType: "poi",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#d59563"
-                }],
-      },
-            {
-                featureType: "poi.park",
-                elementType: "geometry",
-                stylers: [{
-                    color: "#263c3f"
-                }],
-      },
-            {
-                featureType: "poi.park",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#6b9a76"
-                }],
-      },
-            {
-                featureType: "road",
-                elementType: "geometry",
-                stylers: [{
-                    color: "#38414e"
-                }],
-      },
-            {
-                featureType: "road",
-                elementType: "geometry.stroke",
-                stylers: [{
-                    color: "#212a37"
-                }],
-      },
-            {
-                featureType: "road",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#9ca5b3"
-                }],
-      },
-            {
-                featureType: "road.highway",
-                elementType: "geometry",
-                stylers: [{
-                    color: "#746855"
-                }],
-      },
-            {
-                featureType: "road.highway",
-                elementType: "geometry.stroke",
-                stylers: [{
-                    color: "#1f2835"
-                }],
-      },
-            {
-                featureType: "road.highway",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#f3d19c"
-                }],
-      },
-            {
-                featureType: "transit",
-                elementType: "geometry",
-                stylers: [{
-                    color: "#2f3948"
-                }],
-      },
-            {
-                featureType: "transit.station",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#d59563"
-                }],
-      },
-            {
-                featureType: "water",
-                elementType: "geometry",
-                stylers: [{
-                    color: "#17263c"
-                }],
-      },
-            {
-                featureType: "water",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#515c6d"
-                }],
-      },
-            {
-                featureType: "water",
-                elementType: "labels.text.stroke",
-                stylers: [{
-                    color: "#17263c"
-                }],
-      }
-
-        ]
-    };
-
-    myMap = new google.maps.Map(element, options);
-
 });
 
+function initMap() {
+    var element = document.getElementById('map');
+    var options = {
+        zoom: 15,
+        center: {
+            lat: 40.41763478749649,
+            lng: -3.692933611494517
+        },
+        streetViewControl: false,
+        disableDefaultUI: true,
+
+
+        styles: [
+            {
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#242f3e"
+      }
+    ]
+  },
+            {
+                "elementType": "labels",
+                "stylers": [
+                    {
+                        "visibility": "off"
+      }
+    ]
+  },
+            {
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#746855"
+      }
+    ]
+  },
+            {
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                    {
+                        "color": "#242f3e"
+      }
+    ]
+  },
+            {
+                "featureType": "administrative.locality",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#d59563"
+      }
+    ]
+  },
+            {
+                "featureType": "administrative.neighborhood",
+                "stylers": [
+                    {
+                        "visibility": "off"
+      }
+    ]
+  },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#d59563"
+      },
+                    {
+                        "visibility": "off"
+      }
+    ]
+  },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#263c3f"
+      }
+    ]
+  },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#6b9a76"
+      },
+                    {
+                        "visibility": "on"
+      }
+    ]
+  },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#38414e"
+      }
+    ]
+  },
+            {
+                "featureType": "road",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#212a37"
+      }
+    ]
+  },
+            {
+                "featureType": "road",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#9ca5b3"
+      }
+    ]
+  },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#746855"
+      }
+    ]
+  },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#1f2835"
+      }
+    ]
+  },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#f3d19c"
+      }
+    ]
+  },
+            {
+                "featureType": "transit",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#2f3948"
+      }
+    ]
+  },
+            {
+                "featureType": "transit.station",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#d59563"
+      }
+    ]
+  },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#17263c"
+      }
+    ]
+  },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#515c6d"
+      }
+    ]
+  },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                    {
+                        "color": "#17263c"
+      }
+    ]
+  }
+]
+    };
+    myMap = new google.maps.Map(element, options);
+}
 
 function GetData() {
     var data_all = 'https://api.thingspeak.com/channels/262211/fields/1.json?start=2020-5-28%2000:00:00&offset=3';
@@ -156,11 +216,22 @@ function GetData() {
         url: data_all,
         type: 'GET',
         contentType: "application/json",
+        data: {
+            format: 'text'
+        },
         success: function (data, textStatus, xhr) {
             $.each(data, function (i, item) {
                 if (i == 'feeds') {
                     users = item.length;
-                    $('#counter').text(item.length - 6450);
+
+                    $('#counter').text(item.length - 6700);
+
+                    if (once) {
+                        for (var i = 0; i < users - 6700; i++) {
+                            addMarker();
+                        }
+                        once = false;
+                    }
                 }
             });
         },
@@ -169,40 +240,41 @@ function GetData() {
         }
     });
 
-    setTimeout(GetData, 300);
-
-    //    addMarker();
-    //            DrawMarkers();
-
-    dn++;
-
-    if (dn == 8) {
-        DrawMarkers();
-        //        dn = 2;
-    }
+    setTimeout(GetData, 600);
 
 }
+
 
 
 function randomFloat(min, max) {
     return min + (max - min) * Math.random();
 }
 
+function addMarker2() {
+    var lt = randomFloat(40.412, 40.422);
+    var ln = randomFloat(-3.697, -3.688);
+    var marker = new google.maps.Marker({
+        position: {
+            lat: lt,
+            lng: ln
+        },
+        map: myMap,
+        icon: 'm2.png'
+    });
+    var InfoWindow = new google.maps.InfoWindow({
+        content: '<h4>¡NO NOS MIRES!</h4>'
+    })
+    InfoWindow.open(myMap, marker);
 
+    marker.addListener('click', function () {
+        InfoWindow.open(myMap, marker);
 
-function DrawMarkers() {
-
-    for (var i = 0; i < users - 6450; i++) {
-        addMarker();
-    }
-
+    })
 }
 
-
 function addMarker() {
-    var lt = randomFloat(40.41, 40.42);
-    var ln = randomFloat(-3.687, -3.681);
-
+    var lt = randomFloat(40.412, 40.422);
+    var ln = randomFloat(-3.697, -3.688);
     var marker = new google.maps.Marker({
         position: {
             lat: lt,
@@ -213,45 +285,35 @@ function addMarker() {
     });
 }
 
-
-
-
-$("button").click(function () {
-    $.get("https://api.thingspeak.com/update.json?api_key=JDJCGRJD46GEN020&field1=123", function (data, status) {
-        //    alert("Data: " + data + "\nStatus: " + status);
-    });
+$('#send-dialog').click(function () {
+    validate();
+    if (ap) {
+        addMarker2();
+        $.get("https://api.thingspeak.com/update.json?api_key=JDJCGRJD46GEN020&field1=125", function (data, status) {});
+        GetData();
+        document.querySelector('dialog').close();
+    }
 });
 
-
-
-function SendData() {
-
-    if (once) {
-        addMarker();
-        once = false;
-        $.get("https://api.thingspeak.com/update.json?api_key=JDJCGRJD46GEN020&field1=123", function (data, status) {
-        });
-
-        GetData();
-
-
-    }
-
-
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
 
+function validate() {
+    const $result = $("#result");
+    const email = $("#email").val();
+    $result.text("");
 
+    if (validateEmail(email)) {
+        $result.text(email + " is valid :)");
+        $result.css("color", "green");
+        ap = true;
 
-$('#show-action').click(function () {
-    showDialog({
-        title: 'Action',
-        text: 'email / text input',
-
-        positive: {
-            title: 'aha',
-            onClick: SendData
-        }
-    });
-    var bb = document.getElementById('show-action');
-    bb.setAttribute("disabled", "");
-});
+    } else {
+        $result.text(email + " is not valid :(");
+        $result.css("color", "red");
+        ap = false;
+    }
+    return false;
+}
