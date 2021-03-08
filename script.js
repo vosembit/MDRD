@@ -224,10 +224,10 @@ function GetData() {
                 if (i == 'feeds') {
                     users = item.length;
 
-                    $('#counter').text(item.length - 6710);
+                    $('#counter').text(item.length - 6715);
 
                     if (once) {
-                        for (var i = 0; i < users - 6710; i++) {
+                        for (var i = 0; i < users - 6715; i++) {
                             addMarker();
                         }
                         once = false;
