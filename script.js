@@ -10,13 +10,15 @@ $(document).ready(function () {
     GetData();
 });
 
+//40.41361009689965, -3.6933718389796053
+
 function initMap() {
     var element = document.getElementById('map');
     var options = {
         zoom: 15,
         center: {
-            lat: 40.41763478749649,
-            lng: -3.692933611494517
+            lat: 40.41363478749649,
+            lng: -3.693333611494517
         },
         streetViewControl: false,
         disableDefaultUI: true,
@@ -224,10 +226,10 @@ function GetData() {
                 if (i == 'feeds') {
                     users = item.length;
 
-                    $('#counter').text(item.length - 6715);
+                    $('#counter').text(item.length - 6700);
 
                     if (once) {
-                        for (var i = 0; i < users - 6715; i++) {
+                        for (var i = 0; i < users - 6700; i++) {
                             addMarker();
                         }
                         once = false;
@@ -251,8 +253,25 @@ function randomFloat(min, max) {
 }
 
 function addMarker2() {
-    var lt = randomFloat(40.412, 40.422);
-    var ln = randomFloat(-3.697, -3.688);
+
+    var cars = [
+        "¡La revolución será feminista o no será!",
+        "¡Ni una menos!",
+        "¡Luego diréis que somos cinco o seis!",
+        "¡Igualdad, igualdad!",
+        "¿Quién dijo que hoy no íbamos a tomar las calles?",
+        "Que sepan que somos muchas",
+        "¡Las calles también se pueden tomar desde casa!",
+        "¡Estamos en las calles!",
+        "¡Estamos aquí!",
+        "¡Estamos ubicadas!",
+        "¡Si nos separan, más nos unimos!"
+    ];
+
+    var rand = Math.floor(Math.random() * cars.length);
+
+    var lt = randomFloat(40.408, 40.418);
+    var ln = randomFloat(-3.695, -3.692);
     var marker = new google.maps.Marker({
         position: {
             lat: lt,
@@ -262,7 +281,7 @@ function addMarker2() {
         icon: 'm2.png'
     });
     var InfoWindow = new google.maps.InfoWindow({
-        content: '<h4>¡NO NOS MIRES!</h4>'
+        content: '<h4>' + cars[rand] + '</h4>'
     })
     InfoWindow.open(myMap, marker);
 
@@ -272,9 +291,12 @@ function addMarker2() {
     })
 }
 
+//40.41361009689965, -3.6933718389796053
+
+
 function addMarker() {
-    var lt = randomFloat(40.412, 40.422);
-    var ln = randomFloat(-3.697, -3.688);
+    var lt = randomFloat(40.408, 40.418);
+    var ln = randomFloat(-3.695, -3.692);
     var marker = new google.maps.Marker({
         position: {
             lat: lt,
@@ -289,7 +311,7 @@ $('#send-dialog').click(function () {
     validate();
     if (ap) {
         addMarker2();
-        $.get("https://api.thingspeak.com/update.json?api_key=JDJCGRJD46GEN020&field1=1", function (data, status) {});
+        $.get("https://api.thingspeak.com/update.json?api_key=JDJCGRJD46GEN020&field1=125", function (data, status) {});
         GetData();
         document.querySelector('dialog').close();
     }
